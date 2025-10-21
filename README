@@ -1,0 +1,27 @@
+
+Launch Kafka docker container using the following command:
+ docker run -d --name kafka -p 9092:9092 apache/kafka:latest
+
+This command will pull the latest Apache Kafka image from Docker Hub and run it in a detached mode, mapping port 9092 of the container to port 9092 on your host machine.
+You can then connect to Kafka using a Kafka client on your host machine.
+
+Hit the API v1/api/kafka/publishMessage to publish messages to Kafka topic
+with payload as UserDetails JSON object.
+Example payload:
+{
+  "userId": "123",
+  "firstName": "firstName",
+  "lastName": "testName",
+  "mobileNumberList": [
+    "13141412412",
+    "35532434234"
+  ],
+  "bankAccountDetails": {
+    "ICICI": {
+      "bankId": "5435234324",
+      "bankIFSCNumber": "XXXXXXX",
+      "bankAccountNumber": "2324235423",
+      "bankUPIId": "653243@ybl"
+    }
+  }
+}
