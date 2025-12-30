@@ -19,7 +19,7 @@ public class KafkaRest {
     }
 
     @PostMapping("/publishMessage")
-    public ResponseEntity<String> publishMessage(@RequestBody UserDetails userDetails){
+    public ResponseEntity<String> publishMessage(@RequestBody UserDetails userDetails) throws Exception {
         String result = kafkaMessagePublisher.publishMessageIntoKafka(userDetails);
         return ResponseEntity.ok().body(result);
     }
